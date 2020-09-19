@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author MIQDAD
+ * @author Mahadi
  */
 public class SnakeGame extends Applet implements KeyListener,Runnable{
 
@@ -30,7 +30,7 @@ public class SnakeGame extends Applet implements KeyListener,Runnable{
     boolean gameOver;
     Levels lvl;
     private boolean levelComplete;
-    private int lvlSelector = 4;
+    private int lvlSelector = 0;
     private Levels[] levels = {
       new Classic(),
       new Box(),
@@ -43,7 +43,7 @@ public class SnakeGame extends Applet implements KeyListener,Runnable{
         this.resize(400,400);
         img = createImage(400,400);
         gfx = img.getGraphics();
-        speed = 65;
+        speed = 100;
         lvl = getLevel(lvlSelector);
         addKeyListener(this);
         snake = new Snake(lvl);
@@ -143,7 +143,7 @@ public class SnakeGame extends Applet implements KeyListener,Runnable{
     }
     public int updateSpeed(int score){
         //double val = ((105 - score*5)/105.0)*80;
-        return 70-score;
+        return 100-score;
     }
     @Override
     public void run() {
